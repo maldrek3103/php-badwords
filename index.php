@@ -1,28 +1,9 @@
 <?php 
 
-$badword = 'Camillo';
-$badWords = array(
-    'Bastard' => '***',
-    'Beaver' => '***',
-    'Beef curtains' => '***',
-    'Bellend'=> '***',
-    'Bloodclaat'=> '***',
-    'Clunge'=> '***',
-    'Cock'=> '***',
-    'Dick'=> '***',
-    'Dickhead'=> '***',
-    'Fanny'=> '***',
-    'Flaps'=> '***',
-    'Gash'=> '***',
-    'Knob'=> '***',
-    'Minge'=> '***',
-    'Prick'=> '***',
-    'Punani'=> '***',
-    'Pussy'=> '***',
-    'Snatch'=> '***',
-    'Twat'=> '***',
-);
-
+$paragraph = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, accusantium fugit fugiat rerum sapiente quos rem sunt consequatur ab iste maiores explicabo sint quidem inventore excepturi totam, quis, aut adipisci eaque! Fuga magni officiis quaerat minus quod possimus culpa, aliquam, vitae fugiat commodi ipsum saepe. Error voluptatem accusantium deserunt sapiente?';
+$paragraph_length = strlen($paragraph);
+$badword = $_GET['word'];
+$censored_paragraph = str_replace($badword, '***', $paragraph);
 ?>
 
 
@@ -37,14 +18,11 @@ $badWords = array(
 </head>
 <body>
    <h1> <?php 
-   echo $badword . ' è una parola lunga: ' . strlen($badword) . ' lettere'; 
+   echo $paragraph ; 
    ?></h1>
-
-<form name="form" action="" method="get">
-  <input type="text" name="word" id="word" >
-</form>
+<p>Il paragrafofo contiene <?php echo $paragraph_length?> lettere</p>
 </body>
 
-<h2><?php echo strtr($_GET['word'], $badWords);; ?></h2>
+<h2><?php echo $censored_paragraph ?></h2>
 
 </html>
